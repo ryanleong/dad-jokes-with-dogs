@@ -416,12 +416,16 @@ select {
   left: 50%;
   transform: translateX(-50%) translateY(-50%); }
 
+.instructions {
+  text-align: center;
+  color: #fff; }
+
 .loading {
   color: #fff; }
 
 .item {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 32px);
   cursor: pointer; }
 
 .img {
