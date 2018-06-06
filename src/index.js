@@ -2,19 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import { Provider} from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise';
 
 import rootReducer from './reducers';
 
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 import './styles/app.css';
 import Landing from './containers/landing';
 
-const store = createStore(rootReducer);
+// const store = createStore(rootReducer);
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={createStoreWithMiddleware(rootReducer)}>
         <BrowserRouter>
 
             <Switch>
@@ -26,4 +28,4 @@ ReactDOM.render(
 
     , document.getElementById('root')
 );
-registerServiceWorker();
+// registerServiceWorker();
