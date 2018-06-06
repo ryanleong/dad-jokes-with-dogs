@@ -1,3 +1,16 @@
+.item {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+.cover {object-fit: cover;}
+
 .joke {
     position: absolute;
     bottom: 0;

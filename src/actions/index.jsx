@@ -1,12 +1,13 @@
 import axios from 'axios';
 
 export const FETCH_JOKE = 'FETCH_JOKE';
-export const FETCH_SHIBE = 'FETCH_SHIBE';
-export const FETCH_CORGI = 'FETCH_SHIBE';
+export const FETCH_IMAGE = 'FETCH_IMAGE';
+export const FETCH_DOG = 'FETCH_DOG';
+export const FETCH_CAT = 'FETCH_CAT';
 
 const JOKE_URL = `https://icanhazdadjoke.com`;
-const SHIBE_URL = `https://dog.ceo/api/breed/shiba/images/random`;
-const CORGI_URL = `https://dog.ceo/api/breed/corgi/images/random`;
+const DOG_URL = `https://dog.ceo/api/breeds/image/random`;
+const CAT_URL = `https://cataas.com/cat`;
 
 export function fetchJoke() {
     const request = axios.get(
@@ -24,20 +25,23 @@ export function fetchJoke() {
     }
 }
 
-export function fetchShibe() {
-    const request = axios.get(`${SHIBE_URL}`);
+export function fetchImage(type) {
+    let url = DOG_URL;
 
-    return {
-        type: FETCH_SHIBE,
-        payload: request
+    switch(type) {
+        case FETCH_CAT:
+            url = CAT_URL;
+            break;
+
+        case FETCH_DOG:
+        default:
+            url = DOG_URL
     }
-}
-
-export function fetchCorgi() {
-    const request = axios.get(`${CORGI_URL}`);
+    
+    const request = axios.get(url);
 
     return {
-        type: FETCH_CORGI,
+        type: FETCH_IMAGE,
         payload: request
     }
 }
