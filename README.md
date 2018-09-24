@@ -1,3 +1,5 @@
-```sass --watch src/styles/app.scss:src/styles/app.css```
+# Dad Jokes with Dogs
 
-```npm start```
+Feeling under the weather? Why not check out these dad jokes with dogs.
+
+Live URL: https://dadjokeswithdogs.firebaseapp.com
